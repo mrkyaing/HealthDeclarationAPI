@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "ac9fc809-9aa7-490a-827f-cea5d332bd24",
+		"name": "s3-projectAssignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17437211",
+		"_collection_link": "https://mandalabest.postman.co/workspace/Security-Update-Customer-Filter~aa2dc2c7-d103-428b-9784-19328d53b75e/collection/17437211-ac9fc809-9aa7-490a-827f-cea5d332bd24?action=share&creator=17437211&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deviceId\": \"ibm-878A6699\",\r\n    \"deviceType\": \"computer1.0.0.3.33 \",\r\n    \"deviceName\": \"VN1-1-3\",\r\n    \"groupId\": \"847b3b2f1b05dc4\",\r\n    \"dataType\": \"DATA\",\r\n    \"data\": {\r\n        \"fullPowerMode\": false,\r\n        \"messageType\": \"periodic xip zip \",\r\n        \"activePowerControl\": false,\r\n        \"firmwareVersion\": 1,\r\n        \"temperature\": 21,\r\n        \"humidity\": 53\r\n    },\r\n    \"timestamp\": 1629369697\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7117/api/HealthDeclaration",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7117",
+					"path": [
+						"api",
+						"HealthDeclaration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reterive",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deviceId\": \"ibm-878A66\",\r\n    \"deviceType\": \"computer1.0.0\",\r\n    \"deviceName\": \"VN1-1-3\",\r\n    \"groupId\": \"847b3b2f1b05dc4\",\r\n    \"dataType\": \"DATA\",\r\n    \"data\": {\r\n        \"fullPowerMode\": true,\r\n        \"activePowerControl\": true,\r\n        \"firmwareVersion\": 1,\r\n        \"temperature\": 21,\r\n        \"humidity\": 53\r\n    },\r\n    \"timestamp\": 1629369697\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7117/api/HealthDeclaration",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7117",
+					"path": [
+						"api",
+						"HealthDeclaration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reterive by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deviceId\": \"ibm-878A66\",\r\n    \"deviceType\": \"computer1.0.0\",\r\n    \"deviceName\": \"VN1-1-3\",\r\n    \"groupId\": \"847b3b2f1b05dc4\",\r\n    \"dataType\": \"DATA\",\r\n    \"data\": {\r\n        \"fullPowerMode\": true,\r\n        \"activePowerControl\": true,\r\n        \"firmwareVersion\": 1,\r\n        \"temperature\": 21,\r\n        \"humidity\": 53\r\n    },\r\n    \"timestamp\": 1629369697\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7117/api/HealthDeclaration/be0a40be-2c23-4356-ae64-b350ae262d4e",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7117",
+					"path": [
+						"api",
+						"HealthDeclaration",
+						"be0a40be-2c23-4356-ae64-b350ae262d4e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"9c81ee3e-db99-4726-819b-c31fb031207f\",\r\n    \"deviceId\": \"ibm-00976A ZZZZZZZZZZZZ\",\r\n    \"deviceType\": \"computer1.0.0\",\r\n    \"deviceName\": \"VN1-1-4\",\r\n    \"groupId\": \"49548881c4d2bea9\",\r\n    \"dataType\": \"DATA\",\r\n    \"data\": {\r\n        \"version\": 3,\r\n        \"messageType\": \"periodic on you  \",\r\n        \"occupancy\": false,\r\n        \"stateChanged\": 0\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7117/api/HealthDeclaration",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7117",
+					"path": [
+						"api",
+						"HealthDeclaration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7117/api/HealthDeclaration/d0c166af-a7fa-48e6-8f53-2627f1ed901d",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7117",
+					"path": [
+						"api",
+						"HealthDeclaration",
+						"d0c166af-a7fa-48e6-8f53-2627f1ed901d"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
