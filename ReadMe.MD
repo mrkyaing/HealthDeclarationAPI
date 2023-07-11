@@ -9,5 +9,7 @@ occupancy)
 - Reterive By Id API
 - Update API
 - Delete By Id API
+# Swagger UI url 
+- https://localhost:7117/swagger/index.html
 # Postman collection url 
 - https://github.com/mrkyaing/HealthDeclarationAPI/blob/master/s3-projectAssignment.postman_collection.json
