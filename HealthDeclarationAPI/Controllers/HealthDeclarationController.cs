@@ -1,10 +1,7 @@
-﻿using HealthDeclarationAPI.Entities;
-using HealthDeclarationAPI.Models;
+﻿using HealthDeclarationAPI.Models;
 using HealthDeclarationAPI.Repostories;
 using Microsoft.AspNetCore.Mvc;
 using System.Xml.Linq;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace HealthDeclarationAPI.Controllers {
     [Produces("application/json")]
@@ -20,19 +17,20 @@ namespace HealthDeclarationAPI.Controllers {
             this._logger = logger;
         }
 
-        // GET: api/<HealthDeclarationController>
         [HttpGet]
         public async Task<IList<HealthDeclarationModel>> Get() {
           return await  _healthDeclarationRepository.GetAll();
         }
 
-        // GET api/<HealthDeclarationController>/5
         [HttpGet("{id}")]
-        public string Get(int id) {
-            return "value";
+        public async Task<HealthDeclarationModel> Get(string id) {
+            var item = await _healthDeclarationRepository.GetById(id);
+            if(item == null) {
+                throw new ArgumentNullException("not found ");
+            }
+            return item;
         }
 
-        // POST api/<HealthDeclarationController>
         [HttpPost]
         public async Task<IActionResult> Post(HealthDeclarationModel healthDeclarationModel) {
             try {
@@ -43,18 +41,39 @@ namespace HealthDeclarationAPI.Controllers {
                 return Ok(new ErrorDetailsModel { StatusCode=200,Message= "created successfully." });
             }
             catch (Exception e) {
+                _logger.LogError($"Error {e.Message}");
                 throw;
             }
         }
 
-        // PUT api/<HealthDeclarationController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value) {
+        [HttpPut]
+        public async Task<IActionResult> Put(HealthDeclarationModel healthDeclarationModel) {
+            try {
+                _logger.LogInformation($"start executed: {DateTime.Now}");
+                _logger.LogInformation($"requested payload :{healthDeclarationModel}");
+                 await _healthDeclarationRepository.Update(healthDeclarationModel);
+                _logger.LogInformation($"Executed successfully.");
+                return Ok(new ErrorDetailsModel { StatusCode = 200, Message = "updated successfully." });
+            }
+            catch (Exception e) {
+                _logger.LogError($"Error {e.Message}");
+                throw;
+            }
         }
 
-        // DELETE api/<HealthDeclarationController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id) {
+        public async Task<IActionResult> Delete(string id) {
+            try {   
+                _logger.LogInformation($"start executed: {DateTime.Now}");
+                _logger.LogInformation($"requested Id :{id}");
+                 await _healthDeclarationRepository.Delete(id);
+                _logger.LogInformation($"Executed successfully.");
+                return Ok(new ErrorDetailsModel { StatusCode = 200, Message = "deleted successfully." });
+            }
+            catch (Exception e) {
+                _logger.LogError($"Error {e.Message}");
+                throw;
+            }
         }
     }
 }

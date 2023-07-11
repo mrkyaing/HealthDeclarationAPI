@@ -11,14 +11,10 @@ namespace HealthDeclarationAPI.Entities {
         public int FirmwareVersion { get; set; }
         public int Temperature { get; set; }
         public int Humidity { get; set; }
-
         public int Version { get; set; }
         public string? MessageType { get; set; }
         public bool Occupancy { get; set; }
         public int StateChanged { get; set; }
-
         public string HeaderId { get; set; }
-        [ForeignKey("HeaderId")]
-        public virtual HealthDeclarationEntity Header { get; set; }
     }
 }
