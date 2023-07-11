@@ -9,3 +9,5 @@ occupancy)
 - Reterive By Id API
 - Update API
 - Delete By Id API
+# Postman collection url 
+- https://github.com/mrkyaing/HealthDeclarationAPI/blob/master/s3-projectAssignment.postman_collection.json
