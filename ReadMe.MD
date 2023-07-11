@@ -20,9 +20,9 @@ occupancy)
 - Step 4)Please type the following commands at "Package Manager Console"
 - - Add-Migration "Initial"
 - - Update-Database 
-- Step 5) Finally you can run the project.
+- Step 5) Finally you can run the project with connected database.
 # How to run this project (Option 2)
 - Step 1) download this project 
 - Step 2) Build the project as Visual Studio 2022 then it will restore related package from internet
-- Step 3) run the sql script() in your local database 
-- Step 4) Finally you can run the project.
+- Step 3) run the sql script(https://github.com/mrkyaing/HealthDeclarationAPI/blob/master/run-script.sql) in your local database 
+- Step 4) Finally you can run the project with connected database.
